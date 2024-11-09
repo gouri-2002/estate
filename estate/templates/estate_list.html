@@ -1,0 +1,78 @@
+{%extends 'base.html'%}
+
+
+{%block main_block%}
+
+
+
+<div class="container">
+
+    <div class="my-3">
+
+        <a href="{%url 'estate-add'%}" class="btn btn-primary">Add new estate</a>
+
+    </div>
+
+    <table class="table table-striped">
+
+        <tr>
+            <th>address</th>
+            <th>price</th>
+            <th>property_type</th>
+            <th>number_of_bedrooms</th>
+            <th>square_footage</th>
+            <th>location</th>
+            <th>contact_details</th>
+            <th>property_img</th>
+            <th>Action</th>
+        </tr>
+
+        {%for e in data%}
+
+        <tr>
+
+            <td>{{e.address}}</td>
+            <td>{{e.price}}</td>
+            <td>{{e.property_type}}</td>
+            <td>{{e.number_of_bedrooms}}</td>
+            <td>{{e.square_footage}}</td>
+            <td>{{e.location}}</td>
+            <td>{{e.contact_details}}</td>
+            <td>
+                {%if e.property_img%}
+
+                <img src="{{e.property_img.url}}" alt="" class="" height="100px">
+
+                {%endif%}
+            </td>
+
+
+            <td>
+                <a href="{%url 'estate-details' e.id%}">View</a>
+
+            </td>
+            <td>
+                <a href="{%url 'estate-delete' e.id%}">Delete</a>
+
+            </td>
+            <td>
+                <a href="{%url 'estate-update' e.id%}">Update</a>
+
+            </td>
+
+                
+       
+
+        </tr>
+
+
+
+        {%endfor%}
+
+    </table>
+
+</div>
+
+
+
+{%endblock%}

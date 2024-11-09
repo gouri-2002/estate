@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+
+
+{%block main_block%}
+
+
+  
+<div class="container">
+
+  <div class="card mx-auto d-block mt-5" style="width: 18rem;">
+
+      {%if data.property_img%}
+       
+      <img src="{{data.property_img.url}}" class="card-img-top" alt="...">
+
+
+      {%endif%}
+
+      <div class="card-body">
+        <h5 class="card-title">Address:{{data.address}}</h5>
+        <p class="card-text">Price:{{data.price}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+
+        <li class="list-group-item">Property_type:{{data.property_type}}</li>
+        <li class="list-group-item">Number_of_bedrooms:{{data.number_of_bedrooms}}</li>
+        <li class="list-group-item">Square_footage:{{data.square_footage}}</li>
+        <li class="list-group-item">Location:{{data.location}}</li>
+        <li class="list-group-item">Contact_details:{{data.contact_details}}</li>
+      </ul>
+      
+    </div>
+
+</div>
+
+
+
+{%endblock%}
